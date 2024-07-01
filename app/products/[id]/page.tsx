@@ -16,7 +16,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
   const product: Product = await getProductById(id);
 
   if(!product) redirect('/')
-
+    console.log(product);
   const similarProducts = await getSimilarProducts(id);
 
   return (
@@ -174,9 +174,18 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             height={22}
           />
 
-          <Link href="/" className="text-base text-white">
+          {/* <Link href="/" className="text-base text-white">
             Buy Now
-          </Link>
+          </Link> */}
+            <Link 
+                  href={product.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Buy Now
+                </Link>
+
+ 
         </button>
       </div>
 
